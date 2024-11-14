@@ -2,8 +2,8 @@
 
 import os
 import unittest
+from unittest import mock  # Updated to use Python 3's built-in unittest.mock
 
-import mock
 from requests.exceptions import HTTPError
 
 from certbot.plugins import dns_test_common
