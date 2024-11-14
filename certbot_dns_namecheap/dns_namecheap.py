@@ -9,12 +9,11 @@ from certbot import interfaces
 from certbot.plugins import dns_common
 from certbot.plugins import dns_common_lexicon
 
-from urllib2 import urlopen
+from urllib.request import urlopen  # Updated import
 
 logger = logging.getLogger(__name__)
 
 TOKEN_URL = 'https://api.namecheap.com/xml.response or https://api.sandbox.namecheap.com/xml.response'
-
 
 @zope.interface.implementer(interfaces.IAuthenticator)
 @zope.interface.provider(interfaces.IPluginFactory)
@@ -72,7 +71,7 @@ class _NamecheapLexiconClient(dns_common_lexicon.LexiconClient):
 
     def __init__(self, username, api_key, ttl, domain):
         super(_NamecheapLexiconClient, self).__init__()
-        my_ip = urlopen('http://ip.42.pl/raw').read()
+        my_ip = urlopen('https://api.ipify.org').read().decode('utf-8')  # Updated to decode response
         logger.debug(my_ip)
         self.provider = namecheap.Provider({
             'auth_username': username,
