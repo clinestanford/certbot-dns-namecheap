@@ -74,3 +74,12 @@ certbot certonly \
   -d example.com \
   --test-cert
   ```
+
+## Building the docker image
+
+- The anticipated plan for using this docker image is to install the image to any box, and then take advantage of it
+- build by running:
+
+```sh
+sudo docker build -t certbot-dns-namecheap .
+```
