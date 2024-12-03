@@ -77,7 +77,7 @@ certbot certonly \
 
 ## Building the docker image
 
-- The anticipated plan for using this docker image is to install the image to any box, and then take advantage of it
+- The anticipated plan for using this docker image is to install the image to any box, and install new certs with it
 - build by running:
 
 ```sh
